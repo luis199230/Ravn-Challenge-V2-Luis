@@ -7,5 +7,3 @@ This challenge connect with the Ravn API GraphQL and show 5 first characters and
 Here's an image of a challenge code:
 
 ![Example repository](screenshot.png)
-
-Move along.
