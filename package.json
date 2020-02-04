@@ -1,0 +1,46 @@
+{
+  "name": "ravn-challenge-v2",
+  "version": "1.0.0",
+  "description": "Is a solution of challenge for ravn company",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "@apollo/react-hoc": "latest",
+    "@apollo/react-hooks": "^3.1.3",
+    "@n8tb1t/use-scroll-position": "^1.0.43",
+    "apollo-boost": "^0.4.7",
+    "bootstrap": "^4.4.1",
+    "graphql": "^14.6.0",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-apollo": "^3.1.3",
+    "react-dom": "^16.12.0",
+    "react-infinite-scroll-component": "^5.0.4",
+    "react-lazyload": "^2.6.5",
+    "react-scripts": "3.3.0",
+    "reactstrap": "^8.4.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "React",
+    "Apollo",
+    "GraphQL"
+  ],
+  "author": "Luis Benavides",
+  "license": "GPL-3.0-or-later",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
