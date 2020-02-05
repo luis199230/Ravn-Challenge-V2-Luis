@@ -34,7 +34,8 @@ body {
   }
 
   .container-fluid {
-
+    height: calc(100vh - 52px);
+    overflow: hidden;
     /* Start Spinner */
 
     .ml-loader {
@@ -228,6 +229,8 @@ body {
     }
 
     .characters {
+      max-height: calc(100vh - 52px);
+      overflow: scroll;
       margin: 0;
       padding: 0;
       .list-group-item {

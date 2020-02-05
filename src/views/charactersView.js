@@ -1,14 +1,33 @@
-import React, {useState} from "react";
-import LayoutView from "./layoutView";
+import React, {useState, useEffect }  from 'react';
 import CharacterView from "./characterView";
+import LayoutView from "./layoutView";
 import DetailsCharacterView from "./detailsCharacterView";
-import {withApollo} from "@apollo/react-hoc";
+import LoadingView from "./loadingView";
 
+import intersectionObserver from "../observers/useObserver";
 
-let CharactersView = (props) => {
+const CharactersView = ({ characters, onLoadMore }) => {
+  const [observer, setElements, entries] = intersectionObserver({
+    threshold: 0.5,
+    root: null
+  });
+
+  useEffect(() => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        onLoadMore();
+      }
+    });
+  }, [entries, observer, onLoadMore]);
+
+  useEffect(() => {
+    const loadings = document.querySelectorAll(".loading");
+    setElements(loadings);
+  }, [setElements]);
+
   let [character, setCharacter] = useState(null);
-  let characterView = props.characters.map(obj => {
-    return <CharacterView key={obj.node.id} node={obj.node} setCharacter={setCharacter}/>
+  let characterView = characters.map(obj => {
+    return <CharacterView key={obj.node.id} node={obj.node} setCharacter={setCharacter}/>;
   });
 
   return (
@@ -18,6 +37,7 @@ let CharactersView = (props) => {
           <div className="col-md-3">
             <ul className="characters">
               {characterView}
+              <LoadingView complete={false}/>
             </ul>
           </div>
           <div className="col-md-9">
@@ -29,4 +49,4 @@ let CharactersView = (props) => {
   );
 };
 
-export default withApollo(CharactersView);
+export default CharactersView;

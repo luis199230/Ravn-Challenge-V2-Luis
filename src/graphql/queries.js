@@ -1,6 +1,6 @@
-import {gql} from 'apollo-boost';
+import gql from 'graphql-tag';
 
-export const ALL_CHARACTERS = gql`
+export const allCharacters = gql`
   query($length: Int, $after: String)
   {
     allPeople(first:$length, after: $after) {
@@ -25,7 +25,7 @@ export const ALL_CHARACTERS = gql`
   }
 `;
 
-export const FIND_CHARACTER_BY_ID = gql`
+export const findCharacterById = gql`
   query ($id: ID)
   {
     person(id: $id) {

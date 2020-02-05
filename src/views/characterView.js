@@ -1,13 +1,12 @@
 import React from "react";
-import {ListGroupItem} from "reactstrap";
-import {FIND_CHARACTER_BY_ID} from "../queries";
+import {findCharacterById} from "../graphql/queries";
 import {withApollo} from "@apollo/react-hoc";
 
 
 let CharacterView = (props) => {
   return (
-    <ListGroupItem onClick={async () => {
-      let character = await props.client.query({query: FIND_CHARACTER_BY_ID, variables: {id: props.node.id}});
+    <li className="list-group-item" onClick={async () => {
+      let character = await props.client.query({query: findCharacterById, variables: {id: props.node.id}});
       props.setCharacter(character.data.person);
     }}>
       <div>
@@ -15,7 +14,7 @@ let CharacterView = (props) => {
         <p>{props.node.species !== null ? props.node.species.name : ''} from {props.node.homeworld.name}</p>
       </div>
       <i className="arrow"/>
-    </ListGroupItem>
+    </li>
   );
 };
 
